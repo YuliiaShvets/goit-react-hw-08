@@ -1,0 +1,17 @@
+.searchForm {
+    width: 300px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.searchLabel{
+    font-weight: 800;
+    text-align: center;
+    color: black;
+}
+
+.inputLabel{
+    height: 40px;
+}

@@ -1,0 +1,38 @@
+.contactList{
+width: 250px;
+height: 70px;
+display: flex;
+flex-direction: column;
+border: 1px solid black;
+box-shadow: 5px 5px  rgb(133, 134, 134);
+border-radius: 3px;
+padding: 10px;
+gap: 10px;
+background-color: rgb(200, 202, 202);
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+
+.contact{
+    flex-direction: row;
+}
+
+.contactBtn{
+    width: 70px;
+height: 30px;
+background-color: rgb(74, 75, 75);
+border: none;
+color: white;
+}
+
+.contactSpan{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    color: black;
+}
+
+.icon{
+    width: 20px;
+}
