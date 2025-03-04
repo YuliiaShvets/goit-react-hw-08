@@ -1,8 +1,11 @@
 import ContactList from "../../components/contactList/ContactList.jsx";
 
 const ContactsPage = () => {
-  return ( <ContactList />
-  )
-}
+  return (
+    <div>
+     <ContactList /> 
+     </div>
+    )
+};
 
-export default ContactsPage
+export default ContactsPage;

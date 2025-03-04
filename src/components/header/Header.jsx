@@ -1,16 +1,17 @@
 import { NavLink } from "react-router";
 import { selectUser } from "../../redux/auth/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { isLoggedIn } from ""
 import { logoutThunk } from "../../redux/auth/operations";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
+
 const Header = () => {
     const user = useSelector(selectUser);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
     const dispatch = useDispatch();
   return (
     <header>
-        <h2>Auth</h2>
         {user.name && <h3>{user.email}</h3>}
-        <nav className={s.nav}>
+        <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/contacts">Contacts</NavLink>
             {!isLoggedIn && (
