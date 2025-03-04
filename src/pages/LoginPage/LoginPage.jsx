@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { loginThunk } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
+import { Link } from "react-router";
 
 
 const LoginPage = () => {
@@ -37,6 +38,8 @@ const LoginPage = () => {
             <span>Password:</span>
             <Field name="password" type="password"></Field>
           </label>
+          <button type="submit">Login</button>
+          <p>You do not have account yet? <Link to="/register">Get IT!</Link></p>
         </Form>
       </Formik>
     </div>
