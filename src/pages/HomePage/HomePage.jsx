@@ -1,12 +1,7 @@
-import Header from "../../components/header/Header.jsx";
-
-const HomePage = () => {
+export default function Home() {
   return (
     <div>
-      <Header />
       <h1>Phonebook</h1>
     </div>
-  )
-};
-
-export default HomePage;
+  );
+}
