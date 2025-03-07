@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 import AppBar from "./components/AppBar/AppBar.jsx";
 
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <div >
       <AppBar />
@@ -15,3 +15,5 @@ export const Layout = () => {
     </div>
   );
 };
+
+export default Layout;

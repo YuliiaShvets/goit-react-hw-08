@@ -20,7 +20,7 @@ const LoginPage = () => {
     .unwrap()
     .then(res => {
         toast.success(`Welcome, ${res.user.email}`);
-        navigate("/contactPage", { replace: true })
+        navigate("/contacts", { replace: true })
     })
     .catch (() => toast.erros("Invalid data"));
     options.resetForm();

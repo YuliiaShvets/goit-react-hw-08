@@ -12,9 +12,8 @@ const RegistrationPage = () => {
   };
 
   const handleSubmit = (values, options) => {
-    console.log(values);
     dispatch(registerThunk(values));
-    options.reseyForm();
+    options.resetForm();
   }
   return (
     <div>
