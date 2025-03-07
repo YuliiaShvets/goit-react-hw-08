@@ -1,52 +1,67 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations.js";
 import s from "./ContactForm.module.css";
+import { selectContacts } from "../../redux/contacts/slice";
+import { addContact } from "../../redux/contacts/operations.js";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
 
-  const onSubmit = (values, { resetForm }) => {
+  const initialValues = {
+    name: "",
+    number: "",
+  };
+
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .min(3, "Too short!")
+      .max(50, "Too long!")
+      .required("Required!"),
+    number: Yup.string()
+      .matches(/^\d{3}-\d{2}-\d{2}$/, "Format: 123-45-67")
+      .required("Required!"),
+  });
+
+  const handleSubmit = (values, { resetForm }) => {
+    const isExist = contacts.some(
+      (contact) => contact.name.toLowerCase() === values.name.toLowerCase()
+    );
+
+    if (isExist) {
+      alert(`${values.name} is already in contacts.`);
+      return;
+    }
+
     dispatch(addContact(values));
     resetForm();
   };
 
-  const validationSchema = Yup.object({
-    name: Yup.string().required("Required"),
-    number: Yup.string().required("Required"),
-  });
-
   return (
-    <Formik
-      initialValues={{ name: "", number: "" }}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {() => (
-        <Form className={s.contactForm}>
-          <div className={s.form}>
-            <label className={s.labelContactForm} htmlFor="name">
-              Name
-            </label>
-            <Field name="name" type="text" className={s.fieldContactForm} />
+    <div className={s.formContainer}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form className={s.form}>
+          <label>
+            <p className={s.txt}>Name</p>
+            <Field type="text" name="name" className={s.input} />
             <ErrorMessage name="name" component="div" className={s.error} />
-          </div>
-          <div className={s.form}>
-            <label className={s.labelContactForm} htmlFor="number">
-              Number
-            </label>
-            <Field name="number" type="text" className={s.fieldContactForm} />
+          </label>
+          <label>
+            <p className={s.txt}>Number</p>
+            <Field type="text" name="number" className={s.input} />
             <ErrorMessage name="number" component="div" className={s.error} />
-          </div>
-          <div className={s.contactBtn}>
-            <button type="submit" className={s.contactFormBtn}>
-              Add Contact
-            </button>
-          </div>
+          </label>
+          <button type="submit" className={s.button}>
+            Add Contact
+          </button>
         </Form>
-      )}
-    </Formik>
+      </Formik>
+    </div>
   );
 };
 

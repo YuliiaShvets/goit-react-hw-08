@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-
+import s from "./LoginForm.module.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -38,20 +38,20 @@ const LoginForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <label>
+      <Form className={s.form}>
+        <label className={s.label}>
           Email
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
+          <Field type="email" name="email" className={s.input} />
+          <ErrorMessage name="email" component="div" className={s.error} />
         </label>
 
-        <label>
+        <label className={s.label}>
           Password
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
+          <Field type="password" name="password" className={s.input} />
+          <ErrorMessage name="password" component="div" className={s.error} />
         </label>
 
-        <button type="submit">
+        <button type="submit" className={s.button}>
           Log In
         </button>
       </Form>
