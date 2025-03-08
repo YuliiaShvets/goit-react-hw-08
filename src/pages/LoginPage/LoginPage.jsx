@@ -3,9 +3,11 @@ import LoginForm from "..//..//components/LoginForm/LoginForm";
 
 const LoginPage = () => {
   return (
-    <div className={s.wrapper}>
-      <h2 className={s.title}>Log In</h2>
+    <div className={s.logContainer}>
+    <div className={s.logWrapper}>
+      <h2 className={s.logTitle}>Log In</h2>
       <LoginForm />
+    </div>
     </div>
   );
 };

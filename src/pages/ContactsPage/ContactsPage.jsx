@@ -19,8 +19,8 @@ const ContactsPage = () => {
   }, [dispatch, isLoggedIn]);
 
   return (
-    <div className={s.wrapper}>
-      <h2 className={s.title}>Contacts</h2>
+    <div className={s.contactWrapper}>
+      <h2 className={s.contactTitle}>Contacts</h2>
       <ContactForm />
       {isLoading && <p>Loading...</p>}
       <SearchBox />

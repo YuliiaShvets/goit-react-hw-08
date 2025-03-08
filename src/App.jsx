@@ -6,8 +6,9 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { RestrictedRoute } from "./components/RestrictedRoute";
 import { PrivateRoute } from "./components/PrivateRoute";
+import s from "./App.module.css";
 
-const HomePage = lazy(() => import("./pages/Home/HomePage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() => import("./pages/RegistrationPage/RegistrationPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
@@ -25,6 +26,7 @@ const App = () => {
   }
 
   return (
+<div className={s.app}>
     <Suspense fallback={<p>Loading...</p>}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -59,6 +61,7 @@ const App = () => {
         </Route>
       </Routes>
     </Suspense>
+    </div>
   );
 };
 

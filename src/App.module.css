@@ -1,5 +1,5 @@
 .app{
-padding: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +9,7 @@ padding: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding-top: 0px;
 }
 
 h1{

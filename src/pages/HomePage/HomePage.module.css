@@ -1,0 +1,26 @@
+.container {
+width: 100%;
+height: 100vh;
+background-image: url(./image/still-life-with-coffee-music.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+text-align: center;
+}
+
+.txt {
+padding-top: 60px;
+}
+
+.title {
+color: rgb(89, 90, 90);
+}
+
+.span {
+color: black;
+}
+
+.text {
+color: rgb(89, 90, 90);
+}
+

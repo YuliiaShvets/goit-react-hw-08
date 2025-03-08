@@ -1,0 +1,9 @@
+.contactWrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    }
+
+.contactTitle {
+    color: black;
+    }

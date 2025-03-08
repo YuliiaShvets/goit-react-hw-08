@@ -1,0 +1,30 @@
+.navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 0px;
+    font-weight: 20px;
+}
+
+.link {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color:  rgb(199, 202, 202);
+}
+
+.active {
+    color:  rgb(199navigation, 202, 202);
+    text-decoration: underline;
+}
+
+@media (max-width: 375px) {
+    .navigation {
+      flex-direction: column; 
+      gap: 0px;
+    };
+}

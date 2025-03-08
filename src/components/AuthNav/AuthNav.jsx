@@ -1,23 +1,21 @@
 import { NavLink } from "react-router-dom";
 import s from "./AuthNav.module.css";
-import { GiArchiveRegister } from "react-icons/gi";
-import { FaSpaceShuttle } from "react-icons/fa";
+import clsx from 'clsx';
+
+const buildLinkClass = ({ isActive }) => {
+  return clsx(s.link, isActive && s.active);
+};
 
 export const AuthNav = () => {
   return (
-    <div className={s.container}>
-      <NavLink className={s.link} to="/register">
-        <div className={s.iconContainer}>
-          <GiArchiveRegister />
+    <div className={s.authContainer}>
+      <NavLink className={buildLinkClass} to="/register">
           Register
-        </div>
       </NavLink>
-      <NavLink className={s.link} to="/login">
-        <div className={s.iconContainer}>
-          <FaSpaceShuttle />
+      <NavLink className={buildLinkClass} to="/login">
           Log In
-        </div>
       </NavLink>
     </div>
   );
 };
+

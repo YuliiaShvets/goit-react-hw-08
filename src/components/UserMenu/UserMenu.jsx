@@ -7,12 +7,15 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   return (
-    <div className={s.wrapper}>
-      <p className={s.username}>Welcome, {user?.name}</p>
-      <button type="button" onClick={() => dispatch(logout())}>
+    <>
+    <div className={s.userWrapper}>
+      <p className={s.userName}>Welcome, {user?.name}!</p>
+      </div>
+      <button className={s.userButton} type="button" onClick={() => dispatch(logout())}>
         Logout
       </button>
-    </div>
+
+    </>
   );
 };
 

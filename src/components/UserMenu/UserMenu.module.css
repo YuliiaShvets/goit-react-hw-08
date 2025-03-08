@@ -1,0 +1,30 @@
+.userWrapper {
+    display: flex;
+    }
+
+.userName {
+    color: white;
+    align-items: center;
+    display: flex;
+    color: rgb(170, 160, 207);
+    font-size: 20px;
+    }
+
+.userButton {
+    align-items: flex-start;
+    display: flex;
+    font-size: 16px;
+    width: 70px;
+    height: 25px;
+    text-align: center;
+    }
+
+    @media (max-width: 375px) {
+        .userWrapper{
+          flex-direction: column; 
+        }
+
+        .userName{
+            font-size: 16px; 
+          }
+    }

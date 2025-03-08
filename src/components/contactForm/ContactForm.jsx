@@ -9,22 +9,12 @@ const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const initialValues = {
-    name: "",
-    number: "",
-  };
-
   const validationSchema = Yup.object({
-    name: Yup.string()
-      .min(3, "Too short!")
-      .max(50, "Too long!")
-      .required("Required!"),
-    number: Yup.string()
-      .matches(/^\d{3}-\d{2}-\d{2}$/, "Format: 123-45-67")
-      .required("Required!"),
+    name: Yup.string().required("Required"),
+    number: Yup.string().required("Required"),
   });
 
-  const handleSubmit = (values, { resetForm }) => {
+  const onSubmit = (values, { resetForm }) => {
     const isExist = contacts.some(
       (contact) => contact.name.toLowerCase() === values.name.toLowerCase()
     );
@@ -39,30 +29,36 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={s.formContainer}>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        <Form className={s.form}>
-          <label>
-            <p className={s.txt}>Name</p>
-            <Field type="text" name="name" className={s.input} />
-            <ErrorMessage name="name" component="div" className={s.error} />
-          </label>
-          <label>
-            <p className={s.txt}>Number</p>
-            <Field type="text" name="number" className={s.input} />
-            <ErrorMessage name="number" component="div" className={s.error} />
-          </label>
-          <button type="submit" className={s.button}>
-            Add Contact
-          </button>
-        </Form>
-      </Formik>
+  <Formik
+initialValues={{ name: "", number: "" }}
+validationSchema={validationSchema}
+onSubmit={onSubmit}
+>
+{() => (
+  <Form className={s.contactForm}>
+    <div className={s.form}>
+      <label className={s.labelContactForm} htmlFor="name">
+        Name
+      </label>
+      <Field name="name" type="text" className={s.fieldContactForm} />
+      <ErrorMessage name="name" component="div" className={s.error} />
     </div>
-  );
+    <div className={s.form}>
+      <label className={s.labelContactForm} htmlFor="number">
+        Number
+      </label>
+      <Field name="number" type="text" className={s.fieldContactForm} />
+      <ErrorMessage name="number" component="div" className={s.error} />
+    </div>
+    <div className={s.contactBtn}>
+      <button type="submit" className={s.contactFormBtn}>
+        Add Contact
+      </button>
+    </div>
+  </Form>
+)}
+</Formik>
+);
 };
 
 export default ContactForm;

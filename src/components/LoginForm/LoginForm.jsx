@@ -5,6 +5,7 @@ import { login } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import s from "./LoginForm.module.css";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -38,22 +39,25 @@ const LoginForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form className={s.form}>
-        <label className={s.label}>
+      <Form className={s.logForm}>
+        <label className={s.logLabel}>
           Email
-          <Field type="email" name="email" className={s.input} />
-          <ErrorMessage name="email" component="div" className={s.error} />
+          <Field type="email" name="email" className={s.logInput} />
+          <ErrorMessage name="email" component="div" className={s.logError} />
         </label>
 
-        <label className={s.label}>
+        <label className={s.logLabel}>
           Password
-          <Field type="password" name="password" className={s.input} />
-          <ErrorMessage name="password" component="div" className={s.error} />
+          <Field type="password" name="password" className={s.logInput} />
+          <ErrorMessage name="password" component="div" className={s.logError} />
         </label>
 
-        <button type="submit" className={s.button}>
+        <button type="submit" className={s.logButton}>
           Log In
         </button>
+        <p className={s.logMessage}>
+            You already have account? <Link to='/login' className={s.logLink}>Get IT!</Link>
+          </p>
       </Form>
     </Formik>
   );

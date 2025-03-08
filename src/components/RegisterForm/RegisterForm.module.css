@@ -1,0 +1,42 @@
+.regForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+      }
+
+.regLabel {
+    color: black;
+    width: 260px;
+    gap: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+      }
+
+.regInput {
+    height: 30px;
+      }
+
+.regButton {
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+      }
+
+.regMessage {
+    color: black;
+          }
+
+.regLink {
+    color: rgb(45, 46, 46);
+          }
+
+.regError {
+    color: rgb(143, 57, 7);
+    text-align: right;
+        }
+    

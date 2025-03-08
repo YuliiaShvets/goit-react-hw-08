@@ -7,6 +7,10 @@ gap: 16px;
 padding-left: 0px;
 }
 
+.message {
+  color: rgb(27, 27, 27);
+  }
+
 
 @media (max-width: 375px) {
     .contact{
