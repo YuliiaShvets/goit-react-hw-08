@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { selectLoading } from "../../redux/contacts/selectors";
+import { all } from "axios";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
