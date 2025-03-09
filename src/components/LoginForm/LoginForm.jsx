@@ -56,7 +56,7 @@ const LoginForm = () => {
           Log In
         </button>
         <p className={s.logMessage}>
-            You already have account? <Link to='/register' className={s.logLink}>Get IT!</Link>
+            Don't have a registered account yet? <Link to='/register' className={s.logLink}>Get IT!</Link>
           </p>
       </Form>
     </Formik>
